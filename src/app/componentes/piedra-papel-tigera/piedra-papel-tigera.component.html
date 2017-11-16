@@ -1,0 +1,24 @@
+
+<div class="container">
+    
+        <div [hidden]="!visuales">
+            <button class="btn btn-info" mat-icon-button (click)="jugar()" style="width:100%;border-radius:0%">Jugar</button>
+        </div>
+    
+        <div [hidden]="visuales" padding style="text-align:center">
+            <h1> Elija </h1>
+            <button class="btn" (click)="eleccion(1)" [disabled]="" name="piedra"> <img class="img-thumbnail" src="./assets/imagenes/piedra.png" alt="Avatar" style="width:300px;height:300px"></button>
+            <button class="btn" (click)="eleccion(2)" [disabled]="" name="papel"> <img class="img-thumbnail" src="./assets/imagenes/papel.png" alt="Avatar" style="width:300px;height:300px"></button>
+            <button class="btn" (click)="eleccion(3)" [disabled]="" name="tijera"> <img class="img-thumbnail" src="./assets/imagenes/tijera.png" alt="Avatar" style="width:300px;height:300px"></button>
+        </div>
+        <br>
+    
+        <div [hidden]="habemus" style="background:grey;border-radius:6px" >
+          <br>
+                <h1>&nbsp;Usted Elijio <img src="{{user}}" alt="" style="width:200px;height:200px;border-radius:100%">
+                La maquina elije: <img src="{{maquina}}" alt="" style="width:200px;height:200px;border-radius:100%">
+                Usted : <div  *ngIf="resultado=='PERDIO'" style="background:red;color:white;text-align:center">{{resultado}}</div><div *ngIf="resultado=='GANO'" style="background:green;color:white;text-align:center">{{resultado}}</div><div *ngIf="resultado=='EMPATO'" style="background:#FFEB3B;text-align:center">{{resultado}}</div></h1>
+                  <br>
+              </div>
+
+            </div>

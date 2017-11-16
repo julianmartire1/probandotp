@@ -1,0 +1,31 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--app-menu></app-menu-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="text-align:center">
+  <h1>
+    {{nuevoJuego.nombre}}!
+  </h1>
+ </div>
+<h2></h2>
+<div class="juego">
+      <mat-form-field class="example-full-width" style="width:100%" >
+          <input matInput placeholder="Ingrese Numero" [(ngModel)]="nuevoJuego.numeroIngresado" type="number" >
+        </mat-form-field>
+   
+    
+ 
+    <h2 [hidden]="ocultarVerificar"><button mat-raised-button *ngIf="nuevoJuego.numeroSecreto!=0" (click)="verificar()" class="btn btn-success btn-lg">Verificar</button></h2>
+ 
+    <h2><button *ngIf="nuevoJuego.numeroSecreto==0 " mat-raised-button (click)="generarnumero()" color="accent" >Nuevo número secreto</button></h2>
+ 
+      <div *ngIf="nuevoJuego.numeroSecreto!=0">
+          <h2 style="text-align:center">Esperando que ingrese un número</h2>
+          <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+      </div>
+    
+
+   
+
+    </div>
+    <div id="snackbar">{{Mensajes}}</div>
+  

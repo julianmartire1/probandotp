@@ -1,0 +1,67 @@
+<!--input type="button" (click)="llamaService()" class="btn btn-info" value="Pulsame" > 
+<input type="button" (click)="llamaServicePromesa()" class="btn btn-info" value="Pulsame Promesa" -->
+
+<!-- Centered Pills 
+<ul class="nav nav-pills nav-justified">
+    <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li>
+    <li><a (click)="llamaService()">Servicio</a></li>
+    <li><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
+    <li><a (click)="llamaServicePromesa()">Serv observable</a></li>
+  </ul>
+  
+<app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados>-->
+<br><br><br>
+<div class="container" style="background:white">
+  <br>
+  <br>
+  <mat-form-field style="width:100%">
+    <mat-select placeholder="Traer Listado de..." [(ngModel)]="select">
+      <mat-option *ngFor="let item of juegos" [value]="item.value">
+        {{ item.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+<br><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Juego</th>
+        <th scope="col">Jugador</th>
+        <th scope="col">Resultado</th>
+      </tr>
+    </thead>
+
+    <tbody *ngIf="select=='adivina'">
+      <tr *ngFor="let item of listadoAdivina">
+        <td>{{item.nombre}} </td>
+        <td>{{item.jugador}} </td>
+        <td>GANO (numero secreto={{item.numeroSecreto}})</td>
+      </tr>
+    </tbody>
+
+    <tbody *ngIf="select=='ppt'">
+      <tr *ngFor="let item of listadoPPT">
+        <td>{{item.nombre}} </td>
+        <td>{{item.jugador}} </td>
+        <td>{{item.resultado}}</td>
+      </tr>
+    </tbody>
+
+    <tbody *ngIf="select=='anagrama'">
+      <tr *ngFor="let item of listadoAnagrama">
+        <td>{{item.nombre}} </td>
+        <td>{{item.jugador}} </td>
+        <td *ngIf="item.resultado=='true'">GANO</td>
+        <td *ngIf="item.resultado=='false'">PERDIO (la palabra correcta era {{item.palabraOrdenada}})</td>
+      </tr>
+    </tbody>
+
+    <tbody *ngIf="select=='agilidad'">
+      <tr *ngFor="let item of listadoAgilidad">
+        <td>{{item.nombre}} </td>
+        <td>{{item.jugador}} </td>
+        <td>GANO (cuenta {{item.n1}} {{item.cuenta}} {{item.n2}} = {{item.resultado}})</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

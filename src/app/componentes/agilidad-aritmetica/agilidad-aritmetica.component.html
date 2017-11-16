@@ -1,0 +1,44 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--app-menu></app-menu-->
+<!-- index.html -->
+
+<div class="juego">
+    <mat-form-field class="example-full-width" style="width:100%" >
+        <input matInput placeholder="Primer número" [(ngModel)]="nuevoJuego.number1" type="text" readonly>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" style="width:100%" >
+          <input matInput placeholder="Operador" [(ngModel)]="nuevoJuego.cuenta" type="text" readonly>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width:100%" >
+            <input matInput placeholder="Segundo número" [(ngModel)]="nuevoJuego.number2" type="text" readonly>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" style="width:100%" >
+              <input matInput placeholder="Respuesta" [(ngModel)]="ingresado" type="text" >
+            </mat-form-field>
+
+
+          
+
+     
+          <h2 [hidden]="!ocultarVerificar" ><button mat-raised-button (click)="NuevoJuego()" style="width:100%">Nuevo</button></h2>
+    
+    
+          <div [hidden]="ocultarVerificar">
+              <h2 [hidden]="ocultarVerificar"><button mat-raised-button (click)="verificar()" style="width:95%;background:#4CAF50">Verificar {{Tiempo}} </button></h2>
+              <h2 style="text-align:center">Esperando que ingrese un número</h2>
+              <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+          </div>
+
+          <h3 [hidden]="!nuevoJuego.gano"><div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>USTED GANO!</strong>
+            </div></h3>
+          <h3 *ngIf="!band"><div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>USTED PERDIO!</strong>
+            </div></h3>
+    
+
+
+</div>
+<div id="snackbar">{{Mensajes}}</div>

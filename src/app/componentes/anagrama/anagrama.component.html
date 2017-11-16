@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="juego">
+            <h3>Palabra desordenada: {{palabraDesordenada}}</h3>
+    <mat-form-field class="example-full-width" style="width:100%" >
+        
+            <input matInput placeholder="Ingrese la palabra correcta" [(ngModel)]="palabraIngresada" type="text">
+          </mat-form-field>
+    <button mat-raised-button color="primary" (click)="generarPalabra()" [disabled]="bandJuego==true">Generar palabra</button>
+    <button mat-raised-button color="accent" (click)="jugar()" [disabled]="bandVerificar==true">Verificar palabra</button>
+    <h3 *ngIf="mensaje == 'true' && mostrar"><div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>USTED GANO!</strong>
+          </div></h3>
+        <h3 *ngIf=" mensaje =='false' && mostrar"><div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>USTED PERDIO!</strong>
+          </div></h3>
+    </div></div>
